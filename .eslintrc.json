@@ -1,0 +1,57 @@
+{
+  "root": true,
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "requireConfigFile": false,
+    "ecmaFeatures": {
+      "experimentalDecorators": true
+    }
+  },
+  "plugins": ["prettier"],
+  "extends": ["eslint:recommended", "plugin:prettier/recommended"],
+  "rules": {
+    "curly": ["error", "all"],
+    "new-cap": "off",
+    "require-jsdoc": "off",
+    "no-unused-expressions": "off",
+    "no-unused-vars": "off",
+    "semi": ["error", "always"],
+    "object-curly-spacing": ["error", "always"],
+    "arrow-parens": ["error", "always"],
+    "linebreak-style": 0,
+    "space-infix-ops": "error",
+    "eol-last": ["error", "always"]
+  },
+  "env": {
+    "es6": true,
+    "node": true,
+    "jest": true
+  },
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "plugins": ["@typescript-eslint/eslint-plugin"],
+      "extends": ["plugin:@typescript-eslint/recommended"],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "project": ["./tsconfig.json"]
+      },
+      "rules": {
+        "valid-jsdoc": "off",
+        // "prefer-rest-params": "off",
+        "@typescript-eslint/no-non-null-assertion": "off",
+        "@typescript-eslint/no-floating-promises": "error",
+        "@typescript-eslint/await-thenable": "error",
+        "@typescript-eslint/promise-function-async": "error",
+
+        // --- Rules to be fixed
+        "@typescript-eslint/ban-ts-comment": "off",
+        "@typescript-eslint/no-unused-vars": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/ban-types": "off",
+        "@typescript-eslint/no-var-requires": "off"
+      }
+    }
+  ]
+}
